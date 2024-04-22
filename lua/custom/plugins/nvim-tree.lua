@@ -25,6 +25,6 @@ return {
     }
 
     -- Keybindings
-    vim.keymap.set('n', '<leader>tt', '<Cmd>NvimTreeFindFileToggle<CR>', { desc = '[T]oggle Nvim[T]ree' })
+    vim.keymap.set('n', '<leader>of', '<Cmd>NvimTreeFindFileToggle<CR>', { desc = '[O]pen [F]iles' })
   end,
 }
