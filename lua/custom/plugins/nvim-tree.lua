@@ -22,9 +22,12 @@ return {
       filters = {
         dotfiles = true,
       },
+      git = {
+        ignore = false,
+      },
     }
 
     -- Keybindings
-    vim.keymap.set('n', '<leader>of', '<Cmd>NvimTreeFindFileToggle<CR>', { desc = '[O]pen [F]iles' })
+    vim.keymap.set('n', '<leader>of', '<Cmd>NvimTreeFindFile<CR>', { desc = '[O]pen [F]iles' })
   end,
 }
