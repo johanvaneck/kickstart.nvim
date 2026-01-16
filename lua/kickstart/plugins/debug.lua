@@ -19,10 +19,24 @@ return {
 
     -- Installs the debug adapters for you
     'williamboman/mason.nvim',
-    'jay-babu/mason-nvim-dap.nvim',
+    -- 'jay-babu/mason-nvim-dap.nvim',
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+
+    -- Tried this but it didn't work - start
+    { -- Added this option to my disable mason-nvim-dap doing auto installs of netcoredbg
+      'jay-babu/mason-nvim-dap.nvim',
+      opts = {
+        automatic_installation = false, -- turned off because it installs netcoredbg from mason which is built for the wrong architecture.
+      },
+      -- mason-nvim-dap is loaded when nvim-dap loads
+      config = function() end,
+    },
+    { -- Used this fork to install netcoredbg built for arm64 even though M4urici0GM/dap-cs probably works as well
+      'M4urici0GM/dap-cs',
+      dependencies = { 'mfussenegger/nvim-dap' },
+    },
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -95,6 +109,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'netcoredbg',
       },
     }
 
@@ -144,5 +159,7 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+    -- setup dotnet
+    require('netcoredbg-macOS-arm64').setup(dap)
   end,
 }

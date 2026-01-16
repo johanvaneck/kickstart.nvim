@@ -404,8 +404,8 @@ require('lazy').setup({
           },
           layout_strategy = 'vertical', -- Options: 'horizontal', 'vertical', 'flex', 'cursor', 'center', 'bottom_pane'
           layout_config = {
-            width = 0.99999,
-            height = 0.99999,
+            width = 99999,
+            height = 99999,
           },
         },
         -- pickers = {}
@@ -968,6 +968,7 @@ require('lazy').setup({
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'master',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -1001,7 +1002,7 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
